@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.quantum.pro.dao.UserDao" >
+  <sql id="BASE_TABLE">
+    t_show_user
+  </sql>
+
+  <sql id="BASE_COLUMN">
+    age,userimg,sex,addr
+  </sql>
+
+  <select id="selectUsers" resultType="com.quantum.pro.model.UserDomain">
+      SELECT
+        <include refid="BASE_COLUMN"/>
+      FROM
+        <include refid="BASE_TABLE"/>
+  </select>
+
+
+</mapper>
