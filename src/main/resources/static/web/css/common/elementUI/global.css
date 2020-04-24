@@ -1,0 +1,142 @@
+/* 
+	element-ui 自定全局样式  以及系统统一样式表
+*/
+
+/* tabs 标签*/
+
+/* 表单 */
+.el-button--warning {
+	border-color: #ff9933;
+    background-color: #ff9933;
+}
+
+/* table 样式调整*/
+.el-tabs__header {
+	margin: 0px;
+}
+.el-table__empty-text {
+	line-height: 40px;
+}
+.el-table__empty-block {
+	min-height: 40px;
+}
+.el-table th {
+	background-color: #f8f8f8;
+}
+.el-table thead {
+	color: #555;
+}
+
+
+/* 分页 */
+.el-pagination.is-background .el-pager li:not(.disabled).active {
+	background-color: #ff9933;
+}
+
+/* tabs 标签页*/
+.el-tabs__item.is-active {
+	color: #ff9933;
+}
+.el-tabs__active-bar {
+	background-color: #ff9933;
+}
+.el-tabs__item:hover {
+	color: #ff9933;
+}
+
+/** tip居中 */
+.el-notification.tip_center {
+	left:calc(50% - 115px) !important;
+}
+
+/**
+	---------------------------------------------------------------------------------------------------
+	------------------------------------------系统样式表--------------------------------------------------
+	---------------------------------------------------------------------------------------------------
+*/
+
+/* 滚动条设置*/
+::-webkit-scrollbar {
+    width: 5px;/*y轴上的滚动条宽度*/
+    height: 5px;/*x轴上滚动条高度*/
+}
+::-webkit-scrollbar-track {
+    border-radius: 3px; /*滚动条的背景区域的圆角*/
+    background-color: #fdf8f5; /*滚动条的背景颜色*/
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 3px; /*滚动条的圆角*/
+    background-color: #e5e5e5; /*滚动条的背景颜色*/
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(46, 86, 159);
+}
+::-webkit-scrollbar-thumb:active {
+    background-color: rgb(46, 86, 159);
+    cursor: pointer;
+}
+
+body {
+	margin: 0;
+}
+iframe {
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+input, textarea, selet, button {
+	font-family: "Microsoft Yahei";
+}
+.background_white {
+	width: 100%;
+    height: 100%;
+    font-size: 14px;
+    padding: 3px 20px 0 20px;
+    width: calc(100% - 40px);
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px 0 rgba(255,154,54,0.09);
+}
+.white_space {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.inner_margin {
+	
+}
+.small-text {
+	font-size: 12px;
+}
+.normal-text {
+	font-size: 14px;
+}
+.bigger-text {
+	font-size: 16px;
+}
+.small-header {
+	height: 24px;
+	padding: 5px 15px;
+}
+.larger-text {
+	font-size: 18px;
+}
+.color_grey {
+	color: grey;
+}
+.color_red {
+	color: red;
+}
+.color_green {
+	color: green;
+}
+.pointer {
+	cursor: pointer;
+}
+.tag_more {
+	float: right;
+	color: orange;
+	font-size: 12px;
+	cursor: pointer;
+}
+

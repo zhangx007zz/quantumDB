@@ -1,25 +1,35 @@
 package com.quantum.pro.model;
 
-import java.sql.Blob;
-
 public class UserDomain {
-    private Integer userId;
+	private String  name;
+	
+    private Integer id;
 
     private String age;
 
-    private Blob userimg;
+    private byte[] userimg;
 
     private String sex;
     
     private String addr;
 
-    public Integer getUserId() {
-        return userId;
-    }
+   
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public String getAge() {
 		return age;
@@ -29,20 +39,20 @@ public class UserDomain {
 		this.age = age;
 	}
 
-	public Blob getUserimg() {
-		return userimg;
-	}
-
-	public void setUserimg(Blob userimg) {
-		this.userimg = userimg;
-	}
-
 	public String getSex() {
 		return sex;
 	}
 
 	public void setSex(String sex) {
 		this.sex = sex;
+	}
+
+	public byte[] getUserimg() {
+		return userimg;
+	}
+
+	public void setUserimg(byte[] userimg) {
+		this.userimg = userimg;
 	}
 
 	public String getAddr() {

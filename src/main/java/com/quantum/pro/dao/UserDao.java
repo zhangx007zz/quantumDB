@@ -9,11 +9,17 @@ import com.quantum.pro.model.UserDomain;
 
 @Mapper
 public interface UserDao {
-
-
-    int insert(UserDomain record);
-
-
-
+	int insertUserImg (UserDomain record);
+	
+    int insertUser(UserDomain record);
+    
+    int updateUserImg(UserDomain user);
+    
+    UserDomain selectUserById(String id);    
+    
+    int delUser(String id);
+    
     List<UserDomain> selectUsers();
+    
+    UserDomain topUser();
 }

@@ -6,15 +6,50 @@
   </sql>
 
   <sql id="BASE_COLUMN">
-    age,userimg,sex,addr
+       id, name,age,sex,addr
   </sql>
 
+  <select id="topUser" resultType="com.quantum.pro.model.UserDomain">
+      SELECT
+        <include refid="BASE_COLUMN"/>
+      FROM
+        <include refid="BASE_TABLE"/>
+        order by id desc limit 1
+  </select>
+  
   <select id="selectUsers" resultType="com.quantum.pro.model.UserDomain">
       SELECT
         <include refid="BASE_COLUMN"/>
       FROM
         <include refid="BASE_TABLE"/>
+        order by id desc 
   </select>
-
-
+  
+  <select id="selectUserById" resultType="com.quantum.pro.model.UserDomain">
+      SELECT
+          userimg
+      FROM
+        <include refid="BASE_TABLE"/>
+        where id = #{id}
+  </select>
+  
+  <insert id="insertUserImg" keyProperty="id" useGeneratedKeys="true" parameterType="com.quantum.pro.model.UserDomain">
+      insert into t_show_user(userimg) values(#{userimg})
+  </insert>
+  
+  <update id="updateUserImg" parameterType="com.quantum.pro.model.UserDomain">
+      update t_show_user set userimg = #{userimg} where id = #{id}
+  </update>
+  
+  <insert id="insertUser" parameterType="com.quantum.pro.model.UserDomain">
+  	  INSERT INTO t_show_user (id,name,age,sex,addr) VALUES (#{id},#{name},#{age},#{sex},#{addr})
+  	  ON DUPLICATE KEY UPDATE name = #{name}, age =  #{age}, sex=#{sex}, addr = #{addr}
+  </insert>
+  
+  <delete id = "delUser" parameterType="com.quantum.pro.model.UserDomain">
+  	  delete from t_show_user where 1 =1 and
+  	  <if test="id != 'ALL'">
+  	  	INSTR(concat(',',#{id},','), concat(',',id,',') )>0;
+  	  </if>
+  </delete>
 </mapper>

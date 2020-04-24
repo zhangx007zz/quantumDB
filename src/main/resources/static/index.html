@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>华典大数据</title>
+	<script type="text/javascript" src="/web/js/common/vue/base.js"></script>
+  <script src="/web/js/echarts-4.2.1/dist/echarts.min.js?v=20190801"></script>
+	<style>
+  .bgImg {
+    background:url(/web/img/img.jpg)  no-repeat center center;
+    background-size:cover;
+    background-attachment:fixed;
+    background-color:#CCCCCC;
+  }
+  header{
+    font-size: 36px;
+    color: white;
+    text-align: center;
+    }
+  .font{
+      font-size: 24px;
+      color: white;
+			padding: 10px;
+  }
+  .my_echart {
+    min-height: 300px;
+    height: calc(100% - 45px);
+    width: calc(100% - 40px);
+  }
+	a{
+     color:white !important;
+		 text-align:right;
+		 margin-right: calc(10%);;
+  }
+	</style>
+</head>
+<body class="bgImg">
+	<div id="app">
+    <el-container>
+        <el-header style="height:120px;"><span style="position: relative; top: 15%;">可视化数据展示</span></el-header>
+				<a  href="/writeData.html" target="_blank">数据录入</a>
+          <el-main>
+            <el-row class="font">
+              <el-col :span="6">数据库数据统计：</el-col>
+              <el-col :span="6">表数量：{{num.tableNum}}</el-col>
+              <el-col :span="6">数据数量：{{num.rowsNum}}</el-col>
+              <el-col :span="6">字段数量：{{num.columnNum}}</el-col>
+            </el-row>
+            <el-row class="font">
+              <el-col :span="6">今日统计：</el-col>
+              <el-col :span="6">读取次数：{{num.read}}</el-col>
+              <el-col :span="6">写入次数：{{num.write}}</el-col>
+            </el-row>
+
+
+            <el-row class="font">
+              <el-col :span="6">数据库累计操作统计：</el-col>
+              <el-col :span="6">读取次数：{{num.totalRead}}</el-col>
+              <el-col :span="6">写入次数：{{num.totalWrite}}</el-col>
+            </el-row>
+						<el-row class="font">
+              <el-col :span="6">数据库当前最新插入数据：</el-col>
+						</el-row>
+						<el-row class="font" >
+							<el-col :span="4" style="text-align: center;" >
+								 <el-avatar :size="150" :src="val.imgurl"></el-avatar>
+							</el-col>
+								<el-col :span="16"  >
+							<el-row class="font" >
+							<el-col :span="6">姓名：{{val.name}}
+							</el-col>
+							<el-col :span="12">年龄：{{val.age}}
+							</el-col>
+						</el-row>
+						<el-row class="font" >
+						<el-col :span="6">性别：{{val.sex}}
+						</el-col>
+						<el-col :span="12">地址：{{val.addr}}
+					</el-row>
+				</el-col>
+						</el-row>
+
+
+						<el-row class="font">
+							<el-col  :span="12" style="height:30px;text-align: left;line-height:30px;">硬件性能展示</el-col>
+							<el-col  :span="12" style="height:30px;text-align: left;line-height:30px;">数据库性能展示</el-col>
+						</el-row>
+            <el-row class="font">
+      					<el-col :span="6">
+      						<div id="myCharts" class="my_echart"></div>
+      					</el-col>
+								<el-col :span="6">
+      						<div id="meCharts" class="my_echart"></div>
+      					</el-col>
+								<el-col :span="12">
+                  <div id="xeCharts" class="my_echart"></div>
+      					</el-col>
+            </el-row>
+          </el-main>
+      </el-container>
+    <el-row>
+      <el-col :span="24"></el-col>
+    </el-row>
+
+			</div>
+
+	<script type="text/javascript" src="web/js/index.js"></script>
+</body>
+
+</html>

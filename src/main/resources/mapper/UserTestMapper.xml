@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.quantum.pro.dao.UserTestDao" >
+  
+  <select id="selectUsers" resultType="com.quantum.pro.model.UserTestDto">
+      SELECT
+        a.*,b.*
+      FROM
+        t_a_user a left join t_b_user b on a.id = b.userid
+        order by a.id desc 
+  </select>
+  
+  <select id="selectAUsers" resultType="com.quantum.pro.model.UserTestDto">
+      SELECT
+        a.*
+      FROM
+        t_a_user a 
+        order by a.id desc 
+  </select>
+  
+  <update id="updateAUser" parameterType="com.quantum.pro.model.UserTestDto">
+      update t_a_user set name = #{name} ,sex=#{sex}, age=#{age}, height=#{height} where id = #{id}
+  </update>
+  
+  <insert id="insertAUser" keyProperty="id" useGeneratedKeys="true" parameterType="com.quantum.pro.model.UserTestDto">
+  	  INSERT INTO t_a_user (name,age,sex,height) VALUES (#{name},#{age},#{sex},#{height})
+  </insert>
+  
+  <delete id = "delAUser">
+  	  delete from t_a_user where 1 =1 and
+  	  <if test="id != 'ALL'">
+  	  	INSTR(concat(',',#{id},','), concat(',',id,',') )>0;
+  	  </if>
+  </delete>
+  
+  <update id="updateBUser" parameterType="com.quantum.pro.model.UserTestDto">
+      update t_b_user set speciality = #{speciality} ,graduate=#{graduate}, education=#{education} where userid = #{id}
+  </update>
+  
+  <insert id="insertBUser" parameterType="com.quantum.pro.model.UserTestDto">
+  	  INSERT INTO t_b_user (userid,speciality,graduate,education) VALUES (#{id},#{speciality},#{graduate},#{education})
+  </insert>
+  
+  <delete id = "delBUser">
+  	  delete from t_b_user where 1 =1 and
+  	  <if test="id != 'ALL'">
+  	  	INSTR(concat(',',#{id},','), concat(',',id,',') )>0;
+  	  </if>
+  </delete>
+</mapper>

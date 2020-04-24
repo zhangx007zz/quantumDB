@@ -1,0 +1,53 @@
+.bodyClass{background: none repeat scroll 0 0 #f5f8f8;} 
+.customBody .form-multi-col-panel .form-field{width:90px;} 
+.customBody .form-multi-col-panel .form-input1{width:100px; } 
+.customBody .form-multi-col-panel .form-item1{width:400px;}
+.modal-body .form-control{width:200px;}
+/* #accountTransaction .form-control{width:200px;}*/
+#accountTransaction .form-item-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+/* .customBody .form-multi-col-panel .form-item-group{justify-content:left;} */
+#btn-search{padding:6px 4px;margin-top: -3px;}
+.customBody .ui-jqgrid .ui-jqgrid-htable th div{font-size: 14px;padding: 0px 10px;border-left: 1px solid #e2e2e2;}
+.customBody .ui-jqgrid tr.jqgrow td{padding: 0px 10px; font-size: 12px;}
+.customBody .ui-jqgrid tr.jqgrow td.ui-sgcollapsed{padding: 0px 20px; font-size: 12px;}
+.customBody .ui-jqgrid td input,.customBody .ui-widget input{margin-left: 5px;}
+.customBody .jqGrid_wrapper .fa{margin-right:5px;}
+.customBody .fa-mobile,.customBody .fa-frown-o{font-size:18px;}
+.ui-jqgrid-title>a{margin-right:6px;}
+.customBody .ui-widget-header a{color:#fff;font-size:14px;}
+.homePageTab{margin-top:10px;}
+.customBody .form-multi-col-panel .form-item{width:340px;margin:5px;}/* 样式 */
+.modalContent{padding:20px 30px;}
+.customBody .comfirm{width:45%;float:left;}
+.customBody .form-multi-col-panel .form-input{width:200px;}
+.customBody .form-multi-col-panel .form-input-margin{margin-left:-4px;}
+#clientTab{display:none;width:750px;z-index:1000;position:absolute;top:210px;left:100px;margin-bottom:50px;box-shadow: darkgrey 10px 10px 30px 5px ;}
+/* 时间插件 */
+.customBody .form-multi-col-panel .form-item.auto{width:auto;height: 34px;}
+.inline{padding:0;list-style:none;}
+.customBody .form-multi-col-panel .form-item .form-input.confirm{width:auto;}
+.inline li{float:left;}
+.confirm .widget-icon{height:34px;line-height:34px;}
+.confirm .widget-icon input{width:100%;height:100%;padding:0 5px;}
+/* tab切换 */
+.homePageWrap{ background: #fff;/*border: 1px solid #d8dce5;*/-webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,.12), 0 0 6px 0 rgba(0,0,0,.04);box-shadow: 0 2px 4px 0 rgba(0,0,0,.12), 0 0 6px 0 rgba(0,0,0,.04);}
+ .homePageTab {background-color: #f5f7fa;margin-top: 1px;}
+.tab-pane{border: 1px solid transparent;margin: -1px -1px 0;color: #878d99;padding: 0 20px; height: 36px;-webkit-box-sizing: border-box;box-sizing: border-box;line-height: 36px;display: inline-block;list-style: none;font-size: 14px;font-weight: 500;color: #2d2f33;	}
+.tab-pane.is-active{color: #fe7f27;background-color: #fff;border-right-color: #d8dce5;border-left-color: #d8dce5;}
+.homePageTwoTab{padding:10px; border-bottom: 1px dashed #e2e2e2;}
+.visitHintTab{padding:10px; border-bottom: 1px dashed #e2e2e2;}
+.default{cursor:pointer;padding:6px 12px;line-height:34px;background: #fff;border: 1px solid #e2e2e2; border-radius: 3px; font-size: 14px;font-weight: normal;text-align: center;white-space: nowrap;float:left;margin-right:10px;    line-height: 1.42857143;}
+.isActive{background-color: #fc6821;border-color: #fc6821;color: #fff;}
+.customBody .form-multi-col-panel{padding:6px;margin-bottom:0;}
+.customBody .ui-jqgrid .ui-jqgrid-title{font-size:16px;}
+.customBody .modal-body{padding:0;}
+.ui-jqgrid .ui-jqgrid-titlebar .btn-common{ float: right;position: relative;top: 10px;width: 80px;height: 34px;margin-right:-10px;}
+.noticeInfo{display:none;height:200px;text-align:center;line-height:200px;font-size:20px;color:#ff6800;}
+#visitIndex .form-item-group {justify-content: left;}
+.table > tbody + tbody {border-top: 0px;}
+
+#openTotal .ui-widget-content{ border:1px solid rgb(226, 226, 226);}

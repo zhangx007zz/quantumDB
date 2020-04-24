@@ -12,7 +12,7 @@ spring:
           filters: stat
           driver-class-name: com.mysql.jdbc.Driver
           #基本属性
-          url: jdbc:mysql://49.235.76.18:3306/mysql?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
+          url: jdbc:mysql://49.235.76.18:3306/showdata?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
           username: root
           password: qwer
           #配置初始化大小/最小/最大
@@ -42,7 +42,6 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.winterchen.model
-
 
 
 #pagehelper

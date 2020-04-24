@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.quantum.pro.dao.DataBaseDao" >
+  <select id="getDataBase" resultType="com.quantum.pro.model.DataBaseDto">
+     SELECT COUNT(A.TABLE_NAME) TABLENUM,SUM(A.TABLE_ROWS) ROWSNUM,
+	(SELECT COUNT(*) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = 'showdata' ) COLUMNNUM,
+	(SELECT readRta FROM t_show_config ) readRta,
+	(SELECT writeRta FROM t_show_config) writeRta
+	FROM INFORMATION_SCHEMA.TABLES A
+	WHERE A.TABLE_SCHEMA = 'showdata'
+  </select>
+  
+  <select id="getReadWriteBase" resultType="com.quantum.pro.model.DataBaseDto">
+    		SELECT  * FROM t_show_config order by 1 LIMIT 1;
+  </select>
+</mapper>

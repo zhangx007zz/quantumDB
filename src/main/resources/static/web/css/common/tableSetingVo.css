@@ -1,0 +1,96 @@
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/  
+::-webkit-scrollbar  
+{  
+    width: 5px;  /*滚动条宽度*/
+    height: 5px;  /*滚动条高度*/
+}  
+  
+/*定义滚动条轨道 内阴影+圆角*/  
+::-webkit-scrollbar-track  
+{  
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);  
+    border-radius: 10px;  /*滚动条的背景区域的圆角*/
+    background-color: #f5f5f5;/*滚动条的背景颜色*/  
+}  
+  
+/*定义滑块 内阴影+圆角*/  
+::-webkit-scrollbar-thumb  
+{  
+    border-radius: 10px;  /*滚动条的圆角*/
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);  
+    background-color: #fff;  /*滚动条的背景颜色*/
+}  
+
+
+
+.width_50{
+	width:50%;
+}
+
+.f_left{
+	float:left;
+}
+.chased{
+	 color: red;
+}
+.tableSeting_div{
+	margin: 0;
+	font-size: 16px;
+}
+.modal-content{
+    padding: 0;
+}
+.text_area{
+	font-size:14px;
+	color:#aaa;
+	margin-left:-190px;
+}
+.table_title{
+	font-size:16px;
+	margin-left:-310px;
+}
+
+.tableSeting_div table{
+	margin:20px 0 0 80px;
+	background-color: #f5f5f5;
+	display: block;
+    width: 320px;
+    height: 400px;
+    overflow: scroll;
+    text-align: left;
+ }
+ 
+ .tableSeting_div td{
+	padding:2px 0 2px 15px;
+	border:none;
+ }
+
+.fa_bottom{
+	font-size:60px;
+	color: #fc6821;
+	cursor: pointer;
+	margin: 5px;
+}
+
+.fa_bottom div{
+	margin-top:15px;
+}
+.page-footer{
+	text-align: center;
+	background: #fff;
+}
+.buttom_div{
+    position: absolute;
+    width: 100px;
+    left: 450px;
+    height: 100px;
+    top: 42%;
+}
+
+.position_r{
+	position: relative;
+}
+
+
+
+

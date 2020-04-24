@@ -5,36 +5,83 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
+import com.quantum.pro.base.CacheManager;
 import com.quantum.pro.dao.UserDao;
 import com.quantum.pro.model.UserDomain;
+import com.quantum.pro.service.database.DataBaseService;
 import com.quantum.pro.service.user.UserService;
 
-@Service(value = "userService")
+
+
+@Service
 public class UserServiceImpl implements UserService {
+	
+	@Autowired
+	private UserDao userDao;
+	
+	@Autowired
+	private DataBaseService dataBaseService;
+	
+	/**
+	 * 插入更新User
+	 */
+	@Override
+	public void addUser(UserDomain user) {	
+		CacheManager.addCache(CacheManager.WRITE,dataBaseService.isCacheKey(CacheManager.WRITE));
+		userDao.insertUser(user);
+	}
+	
+	/**
+	 * 根据id查询用户头像
+	 */
+	@Override
+	public UserDomain selectUserById(String id) {
+		CacheManager.addCache(CacheManager.READ,dataBaseService.isCacheKey(CacheManager.READ));
+		return userDao.selectUserById(id);
+	}
+	
+	/**
+	 * 添加用户头像
+	 */
+	@Override
+	public int  addUserImg(UserDomain user) {
+		CacheManager.addCache(CacheManager.WRITE,dataBaseService.isCacheKey(CacheManager.WRITE));
+		 userDao.insertUserImg(user);
+		 return user.getId();
+	}
+	
+	/**
+	 * 更新用户头像
+	 */
+	@Override
+	public void updateUserImg(UserDomain user) {
+		CacheManager.addCache(CacheManager.WRITE,dataBaseService.isCacheKey(CacheManager.WRITE));
+		 userDao.updateUserImg(user);
+	}
+	
+	/**
+	 * 获取User表
+	 */
+	@Override
+	public List<UserDomain> findAllUser() {	
+		CacheManager.addCache(CacheManager.READ,dataBaseService.isCacheKey(CacheManager.READ));
+		return userDao.selectUsers();
+	}
+	
+	/**
+	 * 删除user表
+	 */
+	@Override
+	public void delUser(String id) {	
+		CacheManager.addCache(CacheManager.WRITE,dataBaseService.isCacheKey(CacheManager.WRITE));
+		userDao.delUser(id);
+	}
 
-    @Autowired
-    private UserDao userDao;//这里会报错，但是并不会影响
+	@Override
+	public UserDomain topUser() {
+		CacheManager.addCache(CacheManager.READ,dataBaseService.isCacheKey(CacheManager.READ));
+		return userDao.topUser();
+	}
 
-    @Override
-    public int addUser(UserDomain user) {
 
-        return userDao.insert(user);
-    }
-
-    /*
-    * 这个方法中用到了我们开头配置依赖的分页插件pagehelper
-    * 很简单，只需要在service层传入参数，然后将参数传递给一个插件的一个静态方法即可；
-    * pageNum 开始页数
-    * pageSize 每页显示的数据条数
-    * */
-    @Override
-    public PageInfo<UserDomain> findAllUser(int pageNum, int pageSize) {
-        //将参数传给这个方法就可以实现物理分页了，非常简单。
-        PageHelper.startPage(pageNum, pageSize);
-        List<UserDomain> userDomains = userDao.selectUsers();
-        PageInfo<UserDomain> result = new PageInfo(userDomains);
-        return result;
-    }
 }
