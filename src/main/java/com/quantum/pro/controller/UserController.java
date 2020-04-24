@@ -35,7 +35,7 @@ public class UserController {
 	} 
     
     @RequestMapping("/topUser")
-   	public UserDomain topUser() {    	
+   	public List<UserDomain> topUser() {    	
        	return userService.topUser();
    	} 
     

@@ -25,7 +25,6 @@ public class DataBaseServiceImpl implements DataBaseService {
 	@Override
 	public DataBaseDto getDataBase() {
 		DataBaseDto dto = dataBaseDao.getDataBase();
-		CacheManager.addCache(CacheManager.READ,isCacheKey(CacheManager.READ));
 		dto.setRead(CacheManager.getRealLink(CacheManager.READ,isCacheKey(CacheManager.READ)));
 		dto.setWrite(CacheManager.getRealLink(CacheManager.WRITE,isCacheKey(CacheManager.WRITE)));
 		dto.setTotalRead(CacheManager.getRealLink(CacheManager.TOTALREAD,isCacheKey(CacheManager.TOTALREAD)));
@@ -41,7 +40,6 @@ public class DataBaseServiceImpl implements DataBaseService {
     	DataBaseDto dto = new DataBaseDto();
     	if(!CacheManager.map.containsKey(date+type)) {
     		dto = dataBaseDao.getReadWriteBase();
-    		CacheManager.addCache(CacheManager.READ,dto);
 		}
     	return dto;
     }

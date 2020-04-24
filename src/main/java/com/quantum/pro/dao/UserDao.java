@@ -21,5 +21,5 @@ public interface UserDao {
     
     List<UserDomain> selectUsers();
     
-    UserDomain topUser();
+    List<UserDomain> topUser();
 }

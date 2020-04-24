@@ -27,7 +27,6 @@ public class UserServiceImpl implements UserService {
 	 */
 	@Override
 	public void addUser(UserDomain user) {	
-		CacheManager.addCache(CacheManager.WRITE,dataBaseService.isCacheKey(CacheManager.WRITE));
 		userDao.insertUser(user);
 	}
 	
@@ -36,7 +35,6 @@ public class UserServiceImpl implements UserService {
 	 */
 	@Override
 	public UserDomain selectUserById(String id) {
-		CacheManager.addCache(CacheManager.READ,dataBaseService.isCacheKey(CacheManager.READ));
 		return userDao.selectUserById(id);
 	}
 	
@@ -45,7 +43,6 @@ public class UserServiceImpl implements UserService {
 	 */
 	@Override
 	public int  addUserImg(UserDomain user) {
-		CacheManager.addCache(CacheManager.WRITE,dataBaseService.isCacheKey(CacheManager.WRITE));
 		 userDao.insertUserImg(user);
 		 return user.getId();
 	}
@@ -55,7 +52,6 @@ public class UserServiceImpl implements UserService {
 	 */
 	@Override
 	public void updateUserImg(UserDomain user) {
-		CacheManager.addCache(CacheManager.WRITE,dataBaseService.isCacheKey(CacheManager.WRITE));
 		 userDao.updateUserImg(user);
 	}
 	
@@ -64,7 +60,6 @@ public class UserServiceImpl implements UserService {
 	 */
 	@Override
 	public List<UserDomain> findAllUser() {	
-		CacheManager.addCache(CacheManager.READ,dataBaseService.isCacheKey(CacheManager.READ));
 		return userDao.selectUsers();
 	}
 	
@@ -73,13 +68,11 @@ public class UserServiceImpl implements UserService {
 	 */
 	@Override
 	public void delUser(String id) {	
-		CacheManager.addCache(CacheManager.WRITE,dataBaseService.isCacheKey(CacheManager.WRITE));
 		userDao.delUser(id);
 	}
 
 	@Override
-	public UserDomain topUser() {
-		CacheManager.addCache(CacheManager.READ,dataBaseService.isCacheKey(CacheManager.READ));
+	public List<UserDomain> topUser() {
 		return userDao.topUser();
 	}
 

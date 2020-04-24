@@ -17,15 +17,23 @@
 				readRta:'',
 				writeRta:'',
 			},
-			val:{
+			tableData:[{
 				name:'',
 				age:'',
 				sex:'',
 				addr:'',
 				imgurl:''
-			},
+			}],
       $chart: "",
 		},
+		computed: {
+       classOption: function () {
+        return {
+         step: 0.5,
+         limitMoveNum: 1
+        }
+       }
+		 },
 	  methods: {
       init: function() {
 				_this.queryData();
@@ -43,8 +51,11 @@
 				});
 				Vue.$http.post("/user/topUser",null, function(result) {
 					  console.log(result.data);
-						_this.val = result.data;
-						_this.val.imgurl = '/user/getImg?id='+result.data.id;
+						var data = result.data;
+						for(var i=0;i<data.length;i++){
+							 data[i].imgurl = "/user/getImg?id="+data[i].id;
+						 }
+						_this.tableData = data;
 				});
 			},
       echartInit: function() {
@@ -52,7 +63,7 @@
           myCharts.clear();
           _this.$chart = myCharts;
 					var cpu = _this.num.cpuUsage;
-					var free = 100 - _this.num.cpuUsage;
+					var free = 100 - cpu;
           option = {
                 title: {
                     text: 'CPU使用效率图',
@@ -104,7 +115,7 @@
           var meCharts = echarts.init(document.getElementById("meCharts"));
           meCharts.clear();
 					var memory = _this.num.memoryUsage;
-					var free = 100 - _this.num.cpuUsage;
+					var free = 100 - memory;
           option = {
                 title: {
                     text: '内存使用效率图',
@@ -136,8 +147,8 @@
                         center: ['50%', '50%'],
                         selectedMode: 'single',
                         data: [
-                            {value: memory, name: '已使用'},
-                            {value: free, name: '空闲'},
+													  {value: memory, name: '已使用'},
+													  {value: free, name: '空闲'},
                         ],
                         emphasis: {
                             itemStyle: {
@@ -251,6 +262,6 @@
       }
 		}
   });
-  _this.init();
-	setInterval (_this.init(), 30000);
+	_this.init();
+	setInterval (function(){_this.init()}, 30000);
 })();

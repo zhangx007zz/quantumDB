@@ -4,6 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>华典大数据</title>
 	<script type="text/javascript" src="/web/js/common/vue/base.js"></script>
+	<script src="/web/js/common/vue/vue-seamless-scroll.min.js"></script>
   <script src="/web/js/echarts-4.2.1/dist/echarts.min.js?v=20190801"></script>
 	<style>
   .bgImg {
@@ -32,6 +33,31 @@
 		 text-align:right;
 		 margin-right: calc(10%);;
   }
+	.seamless-warp {
+        height: 229px;
+        overflow: hidden;
+    }
+		.warp {
+        height: 120px;
+        width: calc(80%);
+        overflow: hidden;
+      }
+      .warp ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 auto;
+      }
+      .warp li {
+        height: 120px;
+        line-height: 30px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 24px;
+      }
+			.elspan  {
+					margin-top: 30px;
+      }
+
 	</style>
 </head>
 <body class="bgImg">
@@ -62,22 +88,19 @@
               <el-col :span="6">数据库当前最新插入数据：</el-col>
 						</el-row>
 						<el-row class="font" >
-							<el-col :span="4" style="text-align: center;" >
-								 <el-avatar :size="150" :src="val.imgurl"></el-avatar>
-							</el-col>
-								<el-col :span="16"  >
-							<el-row class="font" >
-							<el-col :span="6">姓名：{{val.name}}
-							</el-col>
-							<el-col :span="12">年龄：{{val.age}}
-							</el-col>
-						</el-row>
-						<el-row class="font" >
-						<el-col :span="6">性别：{{val.sex}}
-						</el-col>
-						<el-col :span="12">地址：{{val.addr}}
-					</el-row>
-				</el-col>
+							<vue-seamless-scroll :data="tableData" :class-option="classOption"
+                 @copy-data="tableData = listData.concat(tableData)"
+                 class="warp">
+				        <ul class="item">
+				            <li v-for="item in tableData">
+				               <el-col :span='4' :offset="4"><el-avatar :size="100" :src="item.imgurl"></el-avatar></el-col>
+											 <el-col :span='4' class = 'elspan'>名称：{{item.name}}</el-col>
+											 <el-col :span='3' class = 'elspan'>年龄：{{item.age}}</el-col>
+											 <el-col :span='3' class = 'elspan'>性别: {{item.sex}}</el-col>
+											 <el-col :span='10' class = 'elspan'>地址：{{item.addr}}</el-col>
+				            </li>
+				        </ul>
+				    </vue-seamless-scroll>
 						</el-row>
 
 

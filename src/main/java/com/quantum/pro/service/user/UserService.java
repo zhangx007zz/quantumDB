@@ -18,6 +18,6 @@ public interface UserService {
 		
 	void updateUserImg(UserDomain user) ;
 	
-	UserDomain topUser();
+	List<UserDomain> topUser();
 
 }
