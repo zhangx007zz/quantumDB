@@ -66,7 +66,7 @@
 		<dependency>  <!--工具类 小数格式化 可以改为其他-->
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
-            <version>4.0.9</version>
+            <version>4.1.12</version>
         </dependency>
 		<!-- 获取系统信息jar -->
 		<dependency>
