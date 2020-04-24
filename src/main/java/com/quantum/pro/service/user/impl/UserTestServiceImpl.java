@@ -26,7 +26,6 @@ public class UserTestServiceImpl implements UserTestService{
 	public boolean insertUser(UserTestDto dto) {
 		// TODO Auto-generated method stub
 		int id = dao.insertAUser(dto);
-		dto.setId(id);
 		dao.insertBUser(dto);		
 		return true;
 	}

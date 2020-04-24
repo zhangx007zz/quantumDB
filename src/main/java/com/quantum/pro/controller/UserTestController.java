@@ -5,7 +5,9 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.quantum.pro.model.UserTestDto;
@@ -25,12 +27,17 @@ public class UserTestController {
 	} 
     
     @RequestMapping("/insertUser")
-    public boolean insertUser(UserTestDto dto) {
+    public boolean insertUser(@RequestBody UserTestDto dto) {
     	return userTestService.insertUser(dto);
     }  
     
+    @RequestMapping("/updateUser")
+    public boolean updateUser(@RequestBody UserTestDto dto) {
+    	return userTestService.updateUser(dto);
+    }  
+    
     @RequestMapping("/delUser")
-    public boolean delUser(String id) {    	
+    public boolean delUser(@RequestParam("id")  String id) {    	
 		return userTestService.delUser(id);
 	}
 
@@ -40,17 +47,17 @@ public class UserTestController {
 	}
 
     @RequestMapping("/insertAUser")
-	public int insertAUser(UserTestDto dto) {
+	public int insertAUser(@RequestBody UserTestDto dto) {
 		return userTestService.insertAUser(dto);
 	}
 
     @RequestMapping("/updateAUser")
-	public int updateAUser(UserTestDto dto) {
+	public int updateAUser(@RequestBody UserTestDto dto) {
 		return userTestService.updateAUser(dto);
 	}
 
     @RequestMapping("/delAUser")
-	public int delAUser(String id) {
+	public int delAUser(@RequestParam("id")  String id) {
 		return userTestService.delAUser(id);
 	}
     

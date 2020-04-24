@@ -44,7 +44,7 @@
   <delete id = "delBUser">
   	  delete from t_b_user where 1 =1 and
   	  <if test="id != 'ALL'">
-  	  	INSTR(concat(',',#{id},','), concat(',',id,',') )>0;
+  	  	INSTR(concat(',',#{id},','), concat(',',userid,',') )>0;
   	  </if>
   </delete>
 </mapper>

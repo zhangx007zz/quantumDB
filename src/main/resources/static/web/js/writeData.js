@@ -10,6 +10,7 @@ var newbondHead = '/newbond';
 		fileList:[],
 		imageUrl:"",
 		flag:true,
+		title:'新增用户',
 		val:{
 			id:'',
 			name:'',
@@ -88,11 +89,13 @@ var newbondHead = '/newbond';
 		 });
 	 },
 		addData:function(){
+			_this.title = '新增用户';
 			_this.dialogFormVisible = true;
 		},
 		handleClick:function(row){
 			_this.val = row;
 			_this.imageUrl = row.imgurl;
+			_this.title = '修改用户';
 			_this.dialogFormVisible = true;
 		},
 		closeDilog:function(){

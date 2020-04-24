@@ -105,14 +105,6 @@
                       <el-table-column type="selection">
                       </el-table-column>
                        <el-table-column
-                        prop="imgurl"
-                        align='center'
-                        label="用户头像">
-                        <template scope="scope">
-                           <el-avatar :size="100" :src="scope.row.imgurl"></el-avatar>
-                        </template>
-                      </el-table-column>
-                       <el-table-column
                         prop="name"
                         label="姓名"
                         align='center'>
@@ -128,8 +120,8 @@
                        align='center'>
                      </el-table-column>
                      <el-table-column
-                      prop="addr"
-                      label="地址"
+                      prop="height"
+                      label="身高"
                        align='center'>
                     </el-table-column>
                     <el-table-column
@@ -146,35 +138,12 @@
             </div>
             <div>
             <el-row><el-col>
-            <el-dialog :title="title"  :visible.sync="dialogFormVisible" :close-on-click-modal='false' :close-on-press-escape='false' @close="closeDilog()">
-                  <el-row style="margin-bottom: 10px;text-align: center">
-                    <el-upload
-                        class="avatar-uploader"
-                        :action="uploadUrl(val.id)"
-                        :auto-upload = "false"
-                        :show-file-list="false"
-                        :on-success="handleSuccess"
-                        :on-error="handleError"
-                        :on-change="handleChange"
-                        ref="upload"
-                        :file-list="fileList"
-                        :on-preview="handlePictureCardPreview"
-                        :before-upload="beforeAvatarUpload">
-                        <img v-if="imageUrl" :src="imageUrl" class="avatar">
-                        <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-                      </el-upload>
-                </el-row>
+            <el-dialog title="新增用户"  :visible.sync="dialogFormVisible" :close-on-click-modal='false' :close-on-press-escape='false' @close="closeDilog()">
                 <el-row >
                   <el-col :span="8" :offset="3">
                   <span>姓名：</span>
                     <el-input  type="input"  placeholder="请输入"  v-model="val.name"> </el-input>
                   </el-col>
-                  <el-col :span="8" :offset="2">
-                  <span>年龄：</span>
-                    <el-input  type="input"  placeholder="请输入"  v-model="val.age"> </el-input>
-                  </el-col>
-                </el-row>
-                <el-row>
                   <el-col :span="8" :offset="3">
                   <span>性别：</span>
                     <el-select style="" v-model="val.sex" size="medium"   placeholder="请选择">
@@ -182,13 +151,18 @@
                        <el-option  key="女" label="女" value="女"> </el-option>
                      </el-select>
                   </el-col>
+                </el-row>
+                <el-row>
                   <el-col :span="8" :offset="2">
-                  <span>地址：</span>
+                  <span>年龄：</span>
+                    <el-input  type="input"  placeholder="请输入"  v-model="val.age"> </el-input>
+                  </el-col>
+                  <el-col :span="8" :offset="2">
+                  <span>身高</span>
                   <el-input style="width: 80%;"
                     type="input"
-                    :rows="2"
                     placeholder="请输入内容"
-                    v-model="val.addr">
+                    v-model="val.height">
                     </el-input>
                   </el-col>
                 </el-row>
@@ -202,7 +176,7 @@
         </div>
     </div>
 
-    <script type="text/javascript" src="/web/js/writeData.js?v=20190926"></script>
+    <script type="text/javascript" src="/userTest/js/userATest.js"></script>
 </body>
 
 </html>
