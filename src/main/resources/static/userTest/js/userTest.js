@@ -39,6 +39,10 @@ var newbondHead = '/newbond';
 		  },
 		saveData:function(){
       var param = _this.val;
+			if (_this.val.age !== "" && !Vue.util.isNumber(_this.val.age)) {
+				_this.$message.warning("年龄请输入数字");
+				return;
+			}
       var url = '/test/insertUser';
       if(_this.type=='update'){
         url = '/test/updateUser';

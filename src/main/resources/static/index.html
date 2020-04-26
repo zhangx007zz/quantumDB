@@ -38,9 +38,13 @@
         overflow: hidden;
     }
 		.warp {
-        height: 120px;
-        width: calc(80%);
-        overflow: hidden;
+			height: 120px;
+			width: calc(74%);
+			margin-left: calc(13%);
+			overflow: hidden;
+			border: 1px solid rgba(255, 255, 255, 0.2);
+			color: black;
+			background-color: white;
       }
       .warp ul {
         list-style: none;
@@ -57,6 +61,7 @@
 			.elspan  {
 					margin-top: 30px;
       }
+
 
 	</style>
 </head>
@@ -87,13 +92,13 @@
 						<el-row class="font">
               <el-col :span="6">数据库当前最新插入数据：</el-col>
 						</el-row>
-						<el-row class="font" >
+						<el-row class="font borde"  >
 							<vue-seamless-scroll :data="tableData" :class-option="classOption"
                  @copy-data="tableData = listData.concat(tableData)"
                  class="warp">
 				        <ul class="item">
 				            <li v-for="item in tableData">
-				               <el-col :span='4' :offset="4"><el-avatar :size="100" :src="item.imgurl"></el-avatar></el-col>
+				               <el-col :span='4' :offset="2"><el-avatar :size="100" :src="item.imgurl"></el-avatar></el-col>
 											 <el-col :span='4' class = 'elspan'>名称：{{item.name}}</el-col>
 											 <el-col :span='3' class = 'elspan'>年龄：{{item.age}}</el-col>
 											 <el-col :span='3' class = 'elspan'>性别: {{item.sex}}</el-col>

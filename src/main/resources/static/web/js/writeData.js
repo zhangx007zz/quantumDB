@@ -72,6 +72,10 @@ var newbondHead = '/newbond';
 				return isJPG||isJPG2||isJPG3||isJPG4||isJPG5;
 			},
 		saveData:function(){
+			if (_this.val.age !== "" && !Vue.util.isNumber(_this.val.age)) {
+				_this.$message.warning("年龄请输入数字");
+				return;
+			}
 			if(_this.flag){
 				_this.submitData();
 			}else{
