@@ -147,8 +147,8 @@
                         center: ['50%', '50%'],
                         selectedMode: 'single',
                         data: [
-													  {value: memory, name: '已使用'},
-													  {value: free, name: '空闲'},
+													  {value: free, name: '已使用'},
+													  {value: memory, name: '空闲'},
                         ],
                         emphasis: {
                             itemStyle: {

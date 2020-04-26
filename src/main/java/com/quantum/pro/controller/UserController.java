@@ -64,14 +64,14 @@ public class UserController {
         	 if(StringUtils.isNoneBlank(id)) {
         		 user.setId(Integer.valueOf(id));
         		 userService.updateUserImg(user);
-        		 return "上传成功！";
+        		 return id;
         	 }
         	 int newId = userService.addUserImg(user);
         	 return String.valueOf(newId);
 		} catch (Exception e) {
 			logger.error("获取异常", e);
 		}      
-        return "上传成功！";
+        return id;
     }
 
     @RequestMapping("/getImg")
